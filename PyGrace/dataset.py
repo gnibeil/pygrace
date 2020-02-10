@@ -1,4 +1,4 @@
-from base import GraceObject
+from .base import GraceObject
 
 SYMBOLS = {"None":0,
            "Circle":1,
@@ -14,7 +14,7 @@ SYMBOLS = {"None":0,
            "Char":11,
            }
 INDEX2SYMBOLS = {}
-for name,index in SYMBOLS.iteritems():
+for name,index in SYMBOLS.items():
     INDEX2SYMBOLS[index] = name
 LINETYPES = {"None":0,
              "Straight":1,
@@ -23,7 +23,7 @@ LINETYPES = {"None":0,
              "Segments":4,
              "3-Segments":5}
 INDEX2LINETYPES = {}
-for name,index in LINETYPES.iteritems():
+for name,index in LINETYPES.items():
     INDEX2LINETYPES[index] = name
 LINESTYLES = {"None":0,
               "--":1,
@@ -35,7 +35,7 @@ LINESTYLES = {"None":0,
               ". . - . . - ":7,
               "- - . - - . ":8}
 INDEX2LINESTYLES = {}
-for name,index in LINESTYLES.iteritems():
+for name,index in LINESTYLES.items():
     INDEX2LINESTYLES[index] = name
 
 class Symbol(GraceObject):
@@ -407,7 +407,7 @@ class DataSet(GraceObject):
                 message = """
 Can not find limits of DataSet with type %s
 """%self.type
-                raise TypeError, message
+                raise TypeError(message)
         return x,y
 
     def limits(self,only_visible=True):
