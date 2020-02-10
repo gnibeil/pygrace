@@ -42,7 +42,7 @@ class NodeSet(DataSet):
             else:
                 self.data = [values for label,values in self.data.iteritems()]
         except:
-            raise TypeError, 'data for a NodeSet must be a dictionary'
+            raise TypeError('data for a NodeSet must be a dictionary')
         self.symbol.configure(size=size,
                               fill_color=color,
                               linewidth=line_width,
@@ -84,11 +84,10 @@ class LinkSet(DataSet):
                             n1, n2
                             )
                     else:
-                        raise KeyError, \
-                              'nodes should be added to the network first'
+                        raise KeyError('nodes should be added to the network first')
             self.data = theData
         except:
-            raise TypeError, 'data must be a list of node pairs'
+            raise TypeError('data must be a list of node pairs')
         self.symbol.shape = 0
         self.line.configure(type=4,
                             linestyle=1,
