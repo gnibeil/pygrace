@@ -1,6 +1,7 @@
-import base
 import sys
 import math
+
+from . import base
 
 LINEAR_SCALE = "Normal"
 LOGARITHMIC_SCALE = "Logarithmic"
@@ -202,7 +203,7 @@ class Tick(base.GraceObject):
             message = """
 Tick.set_spec_ticks expects tick_labels list to be the same size as major_ticks.
 """
-            raise TypeError,message
+            raise TypeError(message)
 
         if len(tick_labels)>0:
             self.spec_type = "both"
@@ -370,7 +371,7 @@ class Axis(base.GraceObject):
             message = """
 scale must be either LINEAR_SCALE or LOGARITHMIC_SCALE.
 """
-            raise TypeError,message
+            raise TypeError(message)
 
     def set_format(self, format, precision=None):
         self.ticklabel.format = format
