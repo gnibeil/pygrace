@@ -1,4 +1,4 @@
-from base import GraceObject 
+from .base import GraceObject 
 
 DRAWTEXT_JUSTIFICATIONS = {"l":0,
                            "r":1,
