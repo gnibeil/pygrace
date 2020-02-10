@@ -339,7 +339,7 @@ class ColorBar(Graph):
                 y1 = ymin * math.pow(ymax/ymin,float(i+1)/float(len(self.color_range)))
             else:
                 message = "'%s' is an unknown axis type"%self.xaxis.scale
-                raise TypeError,message
+                raise TypeError(message)
             # add a three-point dataset to show-up as a solid rectangle
             the_dataset = self.add_dataset([(0, y0), (1, y1)],
                                            SolidRectangle,
