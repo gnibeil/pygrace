@@ -36,7 +36,7 @@ PanelLabel always lives in 'view' coordinates to prevent it from being
 marked as out of bounds in the event that
 Graph.remove_extraworld_drawing_objects is called.
 """
-            raise TypeError, message
+            raise TypeError(message)
 
         # specify formats for panel labels
         self.set_text()
@@ -69,7 +69,7 @@ Label scheme '%s' is not allowed.  Try one of these instead:
 %s
 """%(str(label_scheme),
      '\n'.join(self.root.label_schemes.keys()))
-            raise TypeError,message
+            raise TypeError(message)
         self.label_scheme = label_scheme
 
         # make sure index is legal
@@ -83,7 +83,7 @@ For label scheme '%s', label index must be between 0 and %d.
      label_scheme,
      label_scheme,
      len(self.root.label_schemes[label_scheme]))
-            raise TypeError,message
+            raise TypeError(message)
         self.index = index
 
         # set the text of the label
@@ -232,7 +232,7 @@ class MultiPanelGrace(MultiGrace):
             self.label_schemes[label_scheme]!=tuple(labels)):
             message = """Label scheme '%s' already exists.
 """%(label_scheme)
-            raise KeyError,message
+            raise KeyError(message)
 
         self.label_schemes[label_scheme] = tuple(labels)
 
@@ -251,7 +251,7 @@ class MultiPanelGrace(MultiGrace):
             message = """Label scheme '%s' does not exist.  
 Only labels schemes %s are possible.
 """%(label_scheme,possible_label_schemes)
-            raise KeyError,message
+            raise KeyError(message)
 
         self.label_scheme = label_scheme
         for graph in self.graphs:
