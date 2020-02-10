@@ -69,4 +69,4 @@ class LatexString(str):
 if __name__ == '__main__':
 
     s = LatexString(r'Q $\in$ 0.5')
-    print s
+    print(s)
