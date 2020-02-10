@@ -15,7 +15,7 @@ class SolidRectangle(DataSet):
     def __init__(self, color, *args, **kwargs):
         DataSet.__init__(self, *args, **kwargs)
         if len(self.data) != 2:
-            raise TypeError, 'Data for SolidRectangle MUST contain 2 points'
+            raise TypeError('Data for SolidRectangle MUST contain 2 points')
         x0 = self.data[0][0]
         x1 = self.data[1][0]
         y0 = min(self.data[0][1], self.data[1][1])
@@ -35,7 +35,7 @@ class SolidOutlinedRectangle(DataSet):
     def __init__(self, color, outline_color=1, *args, **kwargs):
         DataSet.__init__(self, *args, **kwargs)
         if len(self.data) != 2:
-            raise TypeError, 'Data for SolidOutlinedRectangle MUST contain 2 points'
+            raise TypeError('Data for SolidOutlinedRectangle MUST contain 2 points')
         x0 = self.data[0][0]
         x1 = self.data[1][0]
         y0 = min(self.data[0][1], self.data[1][1])
