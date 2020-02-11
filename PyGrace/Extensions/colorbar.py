@@ -74,7 +74,8 @@ class SolidPixelatedShape(DataSet):
 
         # Sort
         print >> sys.stderr, "Sorting data."
-        pixeldata = sorted(self.data, key=lambda (x,y):(y,x))
+#        pixeldata = sorted(self.data, key=lambda (x,y):(y,x))
+        pixeldata = sorted(self.data, key=lambda tub:(tub[1],tub[0]))
         
         # Determine pixel size
         if pixelsize is not None:
