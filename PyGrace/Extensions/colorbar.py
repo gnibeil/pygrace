@@ -267,7 +267,7 @@ class ColorBar(Graph):
             if self.parent is None:
                 self.color_range = []
             else:
-                self.color_range = range(2,len(self.parent.colors))
+                self.color_range = list(range(2,len(self.parent.colors)))
                 self.color_range.reverse()
         else:
             self.color_range = color_range
