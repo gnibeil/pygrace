@@ -37,7 +37,7 @@ class GraceObject(object):
 
         # parent gets set in a separate function (and self doesn't need it)
         for reserved in ['self', 'parent', 'kwargs']:
-            if attrDict.has_key(reserved):
+            if reserved in attrDict:
                 del attrDict[reserved]
 
         for key, value in attrDict.iteritems():
@@ -45,7 +45,7 @@ class GraceObject(object):
 
         # store default formatting attributes for later use
         for nonformat in ['index', 'data', 'colors']:
-            if attrDict.has_key(nonformat):
+            if nonformat in attrDict:
                 del attrDict[nonformat]
 
         # remove duplicates
@@ -97,7 +97,7 @@ class GraceObject(object):
         
         # loop through dynamic children types in order
         for childType in DYNAMIC_CHILD_TYPES:
-            if self._dynamicChildren.has_key(childType):
+            if childType in  self._dynamicChildren:
                 result.extend(self._dynamicChildren[childType])
 
         return result
