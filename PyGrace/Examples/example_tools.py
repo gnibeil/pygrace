@@ -138,7 +138,7 @@ def colorplot():
                 bin.lwrbnd[1]<=datum[1] and datum[1]<bin.uprbnd[1]):
             s = "bin not correctly identified" + \
                 str(bin.lwrbnd) + ' ' + str(bin.uprbnd) + ' ' + str(datum)
-            raise TypeError, s
+            raise TypeError(s)
         bin.pdf += 1.0
     minpdf,maxpdf = 1.0/float(len(data))/delta/delta, 0.0
     for bin in bins:
