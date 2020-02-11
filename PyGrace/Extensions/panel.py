@@ -63,7 +63,7 @@ Graph.remove_extraworld_drawing_objects is called.
         # make sure label_scheme is legal
         if label_scheme is None:
             label_scheme = self.label_scheme
-        elif not self.root.label_schemes.has_key(label_scheme):
+        elif not label_scheme in self.root.label_schemes:
             message = """
 Label scheme '%s' is not allowed.  Try one of these instead:
 %s
@@ -149,8 +149,7 @@ For label scheme '%s', label index must be between 0 and %d.
         if self.placement not in xys.keys():
             i = lambda s: "'i" + s + "',"
             o = lambda s: "'o" + s + "',"
-            keys = xys.keys()
-            keys.sort()
+            keys = sorted(xys.keys())
             message ="""
 Unknown placement.  Placement should be one of 
 %s
@@ -228,7 +227,7 @@ class MultiPanelGrace(MultiGrace):
         """Add a label scheme to this Grace.
         """
 
-        if (self.label_schemes.has_key(label_scheme) and 
+        if (label_scheme in self.label_schemes and 
             self.label_schemes[label_scheme]!=tuple(labels)):
             message = """Label scheme '%s' already exists.
 """%(label_scheme)
@@ -241,9 +240,8 @@ class MultiPanelGrace(MultiGrace):
         in the grace.
         """
 
-        if not self.label_schemes.has_key(label_scheme):
-            l = self.label_schemes.keys()
-            l.sort()
+        if not label_scheme in self.label_schemes:
+            l = sorted(self.label_schemes.keys())
             possible_label_schemes = ''
             for a_scheme in l[:-1]:
                 possible_label_schemes += '\'' + a_scheme + "', "
