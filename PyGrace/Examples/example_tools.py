@@ -63,8 +63,8 @@ def singleplot():
     x =  [10**(i/float(dn)) for i in range(-3*dn, 3*dn + 1)]
     y1 = [10**math.cos(math.log10(i)**2) for i in x]
     y2 = [10**math.sin(math.log10(i)**2) for i in x]
-    data1 = zip(x, y1)    
-    data2 = zip(x, y2)
+    data1 = list(zip(x, y1))    
+    data2 = list(zip(x, y2))
     return data1, data2
 
 def multiplot():
@@ -83,9 +83,9 @@ def multiplot():
             moving_average.append( (x_bar / float(l), r_bar / float(l)) )
             window.pop(0)
 
-    data1 = zip(x, y1)
-    data2 = zip(x, y0)
-    data3 = zip(x, r)
+    data1 = list(zip(x, y1))
+    data2 = list(zip(x, y0))
+    data3 = list(zip(x, r))
     data4 = moving_average
     data5 = r_cdf
     return data1, data2, data3, data4, data5

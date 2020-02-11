@@ -319,7 +319,7 @@ class DataSet(GraceObject):
         if self.data:
             if self.type=="xy" or self.type=="bar":
                 columns = zip(*self.data)
-                x, y = columns[:2]
+                x, y = list(columns)[:2]
             elif self.type=="xydx":
                 for datum in self.data:
                     x.extend([datum[0],
@@ -438,7 +438,7 @@ Can not find limits of DataSet with type %s
 
     def _repr_data(self):
         if self.type[:2]=='xy' or self.type[:3] =='bar': #any xy or bar type
-            l=[' '.join(map(str,self.data[i])) for i in range(len(self.data))]
+            l=[' '.join(map(str,self.data[i])) for i in range(len(list(self.data)))]
         else:
             l = []
         l.append('&')
