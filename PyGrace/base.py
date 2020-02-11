@@ -40,7 +40,7 @@ class GraceObject(object):
             if reserved in attrDict:
                 del attrDict[reserved]
 
-        for key, value in attrDict.iteritems():
+        for key, value in attrDict.items():
             setattr(self, key, value)
 
         # store default formatting attributes for later use
@@ -93,7 +93,7 @@ class GraceObject(object):
         
         # put named children alphabetically first in list
         result = [child for (name, child) 
-                  in sorted(self._namedChildren.iteritems())]
+                  in sorted(self._namedChildren.items())]
         
         # loop through dynamic children types in order
         for childType in DYNAMIC_CHILD_TYPES:
@@ -299,12 +299,12 @@ class GraceObject(object):
             raise KeyError(message)
 
     def configure(self, **kwargs):
-        for attr, value in kwargs.iteritems():
+        for attr, value in kwargs.items():
             setattr(self, attr, value)
 
     def configure_group(self, *args, **kwargs):
         for arg in args:
-            for attr, value in kwargs.iteritems():
+            for attr, value in kwargs.items():
                 setattr(arg, attr, value)
 
     def scale_suffix(self, value, suffix, all=True):
@@ -476,10 +476,10 @@ class GraceObject(object):
         # if it appears the same number of times as there are total classes,
         # then it must be common to all classes, so add to global list
         globalMethodList, globalAttrList = [], []
-        for (method, count) in methodCount.iteritems():
+        for (method, count) in methodCount.items():
             if count == len(sorted):
                 globalMethodList.append(method)
-        for (attr, count) in attrCount.iteritems():
+        for (attr, count) in attrCount.items():
             if count == len(sorted):
                 globalAttrList.append(attr)
 
