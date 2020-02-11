@@ -25,8 +25,8 @@ class DrawingObject(GraceObject):
         # these are needed for the parent checking by drawing objects, but
         # should not be imported everything else has been (to avoid a cycle
         # in the dependency graph)
-        import graph
-        import grace
+        from PyGrace import graph
+        from PyGrace import grace
 
         # if the drawing object is added by a Graph, then record the index of
         # the graph.  Otherwise the parent of the drawing object is the grace.
