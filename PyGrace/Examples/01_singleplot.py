@@ -5,8 +5,6 @@ from PyGrace.colors import ColorBrewerScheme
 # data1 and data2 are both lists of (x, y) points.
 import example_tools
 data1, data2 = example_tools.singleplot()
-print(data1)
-print(data2)
 grace = Grace(colors=ColorBrewerScheme('Paired'))
 
 graph = grace.add_graph()

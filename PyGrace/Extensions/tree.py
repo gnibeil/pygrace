@@ -110,8 +110,8 @@ class Tree(Graph):
                     nodes[merged_node] = [x,y]
 
                 # add the horizontal line
-                for i in xrange(len(localnodes)):
-                    for j in xrange(i+1,len(localnodes)):
+                for i in range(len(localnodes)):
+                    for j in range(i+1,len(localnodes)):
                         tree += [[nodes[localnodes[i][0]][0],y],[nodes[localnodes[j][0]][0],y]]
 
                 # strip out the nodes that we just merged and put a new name in their place
