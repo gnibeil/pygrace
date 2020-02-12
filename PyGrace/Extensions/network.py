@@ -38,9 +38,9 @@ class NodeSet(DataSet):
         try:
             if labels:
                 self.data = [values + (label, )
-                             for label, values  in self.data.iteritems()]
+                             for label, values  in self.data.items()]
             else:
-                self.data = [values for label,values in self.data.iteritems()]
+                self.data = [values for label,values in self.data.items()]
         except:
             raise TypeError('data for a NodeSet must be a dictionary')
         self.symbol.configure(size=size,
