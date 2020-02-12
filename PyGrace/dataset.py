@@ -318,8 +318,8 @@ class DataSet(GraceObject):
         x, y = [], []
         if self.data:
             if self.type=="xy" or self.type=="bar":
-                columns = zip(*self.data)
-                x, y = list(columns)[:2]
+                columns = list(zip(*self.data))
+                x, y = columns[:2]
             elif self.type=="xydx":
                 for datum in self.data:
                     x.extend([datum[0],
@@ -373,11 +373,11 @@ class DataSet(GraceObject):
                               datum[1]+datum[2],
                               datum[1]-datum[3]])
             elif self.type=="xyhilo":
-                columns = zip(*self.data)
+                columns = list(zip(*self.data))
                 x = columns[0]
                 y = columns[1] + columns[2] + columns[3] + columns[4]
             elif self.type=="xyz":
-                columns = zip(*self.data)
+                columns = list(zip(*self.data))
                 x, y = columns[:2]
 #             elif self.type=="xyr": # xmgrace does not support
 #                 for datum in self.data:
@@ -386,10 +386,10 @@ class DataSet(GraceObject):
 #                     y.extend([datum[1]-datum[2],
 #                               datum[1]+datum[2]])
             elif self.type=="xysize":
-                columns = zip(*self.data)
+                columns = list(zip(*self.data))
                 x, y = columns[:2]
             elif self.type=="xycolor":
-                columns = zip(*self.data)
+                columns = list(zip(*self.data))
                 x, y = columns[:2]
 #             elif self.type=="xycolpat": # xmgrace does not support
 #                 pass
@@ -400,7 +400,7 @@ class DataSet(GraceObject):
                     y.extend([datum[1],
                               datum[1]+datum[3]])
             elif self.type=='xyboxplot':
-                col = zip(*self.data)
+                col = list(zip(*self.data))
                 x = col[0]
                 y = col[1] + col[2] + col[3] + col[4]
             else:
