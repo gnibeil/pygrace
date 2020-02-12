@@ -427,11 +427,9 @@ class GraceObject(object):
                 # _defaultAttributes dictionary
                     
         # remove duplicates and sort each list
-        methodList = dict.fromkeys(methodList).keys()
-        methodList.sort()
+        methodList = sorted(dict.fromkeys(methodList).keys())
 
-        attrList = dict.fromkeys(attrList).keys()
-        attrList.sort()
+        attrList = sorted(dict.fromkeys(attrList).keys())
 
         # add the methods and attributes for this object into the reference
         # list --- the reference list is stored in the root node (and must
@@ -454,14 +452,13 @@ class GraceObject(object):
         # temporary private variable in the root node
         self.root._reference_list = {}
         self._make_reference_list()
-        sorted = self.root._reference_list.items()
-        sorted.sort()
+        sorte = sorted(self.root._reference_list.items())
         del self.root._reference_list
 
         # count the number of classes in which each method appears
         methodCount = {}
         attrCount = {}
-        for (cls, mdl), (methodList, attrList) in sorted:
+        for (cls, mdl), (methodList, attrList) in sorte:
             for method in methodList:
                 try:
                     methodCount[method] += 1
@@ -477,10 +474,10 @@ class GraceObject(object):
         # then it must be common to all classes, so add to global list
         globalMethodList, globalAttrList = [], []
         for (method, count) in methodCount.items():
-            if count == len(sorted):
+            if count == len(sorte):
                 globalMethodList.append(method)
         for (attr, count) in attrCount.items():
-            if count == len(sorted):
+            if count == len(sorte):
                 globalAttrList.append(attr)
 
         globalMethodList.sort()
@@ -489,7 +486,7 @@ class GraceObject(object):
         # now remove the "global" attributes and methods from the list of
         # attributes and methods
         globalRemoved = []
-        for (cls, mdl), (methodList, attrList) in sorted:
+        for (cls, mdl), (methodList, attrList) in sorte:
             newMethodList = [m for m in methodList if not m in globalMethodList]
             newAttrList = [a for a in attrList if not a in globalAttrList]
             item = (cls, mdl, newMethodList, newAttrList)
@@ -569,8 +566,7 @@ class GraceObject(object):
 
         # print latex page to outfile
         outStream = open(filename, 'w')
-        print >> outStream,'\n'.join(self._latex_friendly(line)
-                                     for line in result)
+        outStream.write('\n'.join(self._latex_friendly(line) for line in result))
         outStream.close()
 
 
@@ -602,9 +598,8 @@ class BaseSet(object):
     def __str__(self):
         """Returns the string representation of each item in the set (sorted
         by index and separated by newlines)."""
-        sorted = [(item.index, item) for item in self.items]
-        sorted.sort()
-        return '\n'.join(str(item) for index, item in sorted)
+        sorte = sorted([(item.index, item) for item in self.items])
+        return '\n'.join(str(item) for index, item in sorte)
 
     # iterate over items (objects that is, not index or name)
     def __len__(self): return len(self.items)
