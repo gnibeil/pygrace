@@ -23,7 +23,7 @@ class CDFGraph(DistributionGraph):
             self.dataset.line.configure(type=2, linestyle=0)
 
             # calculate position of other points, to show "real" CDF
-            other = [(x0, y1) for (x0, y0), (x1, y1)
+            other = [(x0, y1) for (x0, y0) , (x1, y1)
                      in zip(data[:-1], data[1:])]
             other.append((x1, 0))
             dotted = self._interlace(data, other)

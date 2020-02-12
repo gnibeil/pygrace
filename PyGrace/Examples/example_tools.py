@@ -20,8 +20,7 @@ def calculate_cdf(data, normalized=True):
         except KeyError:
             countDict[item]  = 1
 
-    countX = countDict.items()
-    countX.sort()
+    countX = sorted(countDict.items())
 
     unnormalized = []
     n_greater_or_equal = len(data)
@@ -48,8 +47,7 @@ def calculate_pdf(data, normalized=True):
         except KeyError:
             countDict[item]  = 1
 
-    frequencyList = countDict.items()
-    frequencyList.sort()
+    frequencyList = sorted(countDict.items())
 
     total = float(sum(data))
     if normalized:

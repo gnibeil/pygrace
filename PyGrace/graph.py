@@ -739,8 +739,7 @@ There are no datasets or drawing_objects on which to determine the limits.
             lookup[item] = None
 
         # put symbols into a list
-        indices = INDEX2SYMBOLS.keys()
-        indices.sort()
+        indices = sorted(INDEX2SYMBOLS.keys())
         if not symbolsList:
             symbolsList = []
             for index in indices:
@@ -775,8 +774,7 @@ There are no datasets or drawing_objects on which to determine the limits.
             lookup[item] = None
 
         # put line styles into a list
-        indices = INDEX2LINESTYLES.keys()
-        indices.sort()
+        indices = sorted(INDEX2LINESTYLES.keys())
         if not linestylesList:
             linestylesList = []
             for index in indices:
